@@ -301,13 +301,13 @@
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD        240 // Seconds
-  #define THERMAL_PROTECTION_BED_HYSTERESIS     10 // Degrees Celsius
+  #define THERMAL_PROTECTION_BED_PERIOD        20 // Seconds
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
 
   /**
    * As described above, except for the bed (M140/M190/M303).
    */
-  #define WATCH_BED_TEMP_PERIOD                120 // Seconds
+  #define WATCH_BED_TEMP_PERIOD                60 // Seconds
   #define WATCH_BED_TEMP_INCREASE               2 // Degrees Celsius
 #endif
 
@@ -1868,7 +1868,7 @@
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   //#define BABYSTEP_MILLIMETER_UNITS       // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
-  #define BABYSTEP_MULTIPLICATOR_Z 20       // (steps or mm) Steps or millimeter distance for each Z babystep
+  #define BABYSTEP_MULTIPLICATOR_Z 25       // (steps or mm) Steps or millimeter distance for each Z babystep
   #define BABYSTEP_MULTIPLICATOR_XY 1       // (steps or mm) Steps or millimeter distance for each XY babystep
 
   //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
@@ -1950,10 +1950,10 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-  #define PROBING_MARGIN_LEFT 33
-  #define PROBING_MARGIN_RIGHT 12.5
-  #define PROBING_MARGIN_FRONT 10
-  #define PROBING_MARGIN_BACK 8
+  //#define PROBING_MARGIN_LEFT PROBING_MARGIN
+  //#define PROBING_MARGIN_RIGHT PROBING_MARGIN
+  //#define PROBING_MARGIN_FRONT PROBING_MARGIN
+  //#define PROBING_MARGIN_BACK PROBING_MARGIN
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
@@ -2837,7 +2837,7 @@
   #define STEALTHCHOP_I
   #define STEALTHCHOP_J
   #define STEALTHCHOP_K
-  //#define STEALTHCHOP_E
+  #define STEALTHCHOP_E
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -2945,7 +2945,7 @@
    *
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    */
-  #define SENSORLESS_HOMING // StallGuard capable drivers only
+  //#define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
@@ -2980,13 +2980,13 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  #define SQUARE_WAVE_STEPPING
+  //#define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  #define TMC_DEBUG
+  //#define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
