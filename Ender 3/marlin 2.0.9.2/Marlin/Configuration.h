@@ -830,7 +830,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -840,7 +840,7 @@
 #define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -1178,11 +1178,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 32.5, 5.5, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 37, 6, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 0
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (8000)
@@ -1320,7 +1320,7 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
+#define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
@@ -1368,12 +1368,12 @@
 // @section machine
 
 // The size of the printable area
-#define X_BED_SIZE 223.5
-#define Y_BED_SIZE 199
+#define X_BED_SIZE 209
+#define Y_BED_SIZE 204
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -16.5
-#define Y_MIN_POS -31
+#define X_MIN_POS -12
+#define Y_MIN_POS -26
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -1739,8 +1739,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT (((X_BED_SIZE) / 2) -10)  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT (((Y_BED_SIZE) / 2) +2 )  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT (((X_BED_SIZE) / 2) -5)  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT (((Y_BED_SIZE) / 2) -3)  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
