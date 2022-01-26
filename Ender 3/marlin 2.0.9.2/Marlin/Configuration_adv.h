@@ -872,6 +872,8 @@
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
 #define Z_STEPPER_AUTO_ALIGN
+//  M422 S1 X25.00 Y99.00
+//  M422 S2 X199.00 Y99.00
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   // Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
   // If not defined, probe limits will be used.
@@ -898,7 +900,7 @@
    *               | 1   2 | 2   3 | 3   4 | 4   1 |
    */
   #ifndef Z_STEPPER_ALIGN_XY
-    #define Z_STEPPERS_ORIENTATION 0
+    //#define Z_STEPPERS_ORIENTATION 0
   #endif
 
   // Provide Z stepper positions for more rapid convergence in bed alignment.
